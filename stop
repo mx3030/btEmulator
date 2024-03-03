@@ -1,0 +1,4 @@
+#! /bin/bash
+
+tmux kill-session -t btEmulator
+sudo service bluetooth start

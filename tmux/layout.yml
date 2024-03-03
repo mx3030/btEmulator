@@ -1,0 +1,21 @@
+name: btEmulator
+
+attach: false
+startup_window: clients
+
+windows: 
+    - daemon:
+        - sudo /usr/lib/bluetooth/bluetoothd -P input
+    - bluetoothctl:
+        - bluetoothctl
+    - server:
+        - sudo python3 server/server.py
+    - clients:
+        layout: even-vertical
+        panes: 
+            - keyboard:
+                - sleep 2s
+                - sudo python3 keyboard/keyboard_client.py
+            - mouse:    
+                - sleep 2s
+                - sudo python3 mouse/mouse_client.py

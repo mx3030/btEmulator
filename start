@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo service bluetooth stop
+sleep 2s
+tmuxinator start -p "$PWD/tmux/layout.yml"
+gnome-terminal -- bash -c "tmux attach -t btEmulator"
+
